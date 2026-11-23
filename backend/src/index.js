@@ -2,6 +2,7 @@ import express from 'express';
 import authRoutes from './routes/authRoute.js'
 import dotenv from "dotenv";
 import { connectDB } from './lib/database.js';
+import cookieParser from "cookie-parser"
 
 dotenv.config()
 const app = express();
@@ -9,6 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 5001
 
 app.use(express.json()); //to extract the json data out of the body
+app.use(cookieParser())
 
 // Connect routes
 app.use("/api/auth", authRoutes)

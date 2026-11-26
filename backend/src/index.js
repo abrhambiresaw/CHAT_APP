@@ -1,5 +1,6 @@
 import express from 'express';
 import authRoutes from './routes/authRoute.js'
+import messageRoutes from './routes/messageRoute.js'
 import dotenv from "dotenv";
 import { connectDB } from './lib/database.js';
 import cookieParser from "cookie-parser"
@@ -14,6 +15,7 @@ app.use(cookieParser())
 
 // Connect routes
 app.use("/api/auth", authRoutes)
+app.use("/api/message", messageRoutes)
 
 
 const startServer = async () => {
